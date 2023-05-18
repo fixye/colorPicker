@@ -2,3 +2,144 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --bg : rgba(255, 255, 255, 1);
+    --border : rgba(209, 213, 219, 1);
+    --modes-color : rgba(17, 24, 39, 1);
+    --codes-color : rgba(43, 40, 58, 1);
+    --btn-color : rgba(55, 65, 81, 1);
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+main {
+    width: 550px;
+    height: 550px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: auto;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+    gap: .5rem;
+    align-items: center;
+    padding: 23px 14px;
+}
+
+.mode {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 13px;
+    width: 312px;
+    height: 42px;
+    background-color: var(--bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--modes-color);
+}
+
+.mode-svg {
+    margin-left: auto;
+}
+
+input[type="color"] {
+    width: 61px;
+    height: 42px;
+    border: 1px solid var(--border);
+}
+
+button {
+    font-weight: 500;
+    padding: 13px 11px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: var(--bg);
+    height: 42px;
+    transition: box-shadow .5s;
+    color: var(--btn-color);
+}
+
+button:hover {
+    box-shadow: 0 0 13px rgba(0, 0, 0, .25);
+}
+
+ul {
+    position: absolute;
+    list-style: none;
+    top: 50px;
+    left: 0;
+    border: 1px solid var(--border);
+    padding: 0;
+    border-radius: 6px;
+    width: 312px;
+    z-index: 10;
+    background-color: var(--bg);
+    display: none;
+}
+
+li {
+    padding: 8px 12px;
+    transition: background-color .2s;
+    border-radius: 6px;
+    color: var(--modes-color);
+    user-select: none;
+}
+
+ul:first-child {
+    padding-top: 12px;
+}
+
+.active {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.active-svg {
+    margin-left: auto;
+}
+
+.scheme {
+    display: flex;
+    position: relative;
+    z-index: -1;
+}
+
+.color {
+    height: 410px;
+    width: 110px;
+    transition: transform .5s;
+}
+
+.color:hover {
+    transform: scale(110%);
+}
+
+li:hover {
+    background-color: #efefef;
+    
+}
+
+.codes {
+    background-color: var(--bg);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 46px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--codes-color);
+}
+
+.show {
+    display: block;
+}

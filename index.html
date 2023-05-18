@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Color scheme picker</title>
 </head>
+
 <body>
-    
+    <main>
+        <section class="toolbar">
+            <input type="color">
+            <div class="mode">
+                Monochrome
+                <svg width="16" height="9" class="mode-svg" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 1L8 8L1 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                <ul>
+                    <li class="active">Monochrome<svg width="14" height="10" class="active-svg"viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7071 0.292893C14.0976 0.683417 14.0976 1.31658 13.7071 1.70711L5.70711 9.70711C5.31658 10.0976 4.68342 10.0976 4.29289 9.70711L0.292893 5.70711C-0.0976311 5.31658 -0.0976311 4.68342 0.292893 4.29289C0.683417 3.90237 1.31658 3.90237 1.70711 4.29289L5 7.58579L12.2929 0.292893C12.6834 -0.0976311 13.3166 -0.0976311 13.7071 0.292893Z" fill="#4F46E5"/>
+                        </svg></li>
+                    <li>Monochrome-dark</li>
+                    <li>Monochrome-light</li>
+                    <li>Analogic</li>
+                    <li>Complement</li>
+                    <li>Analogic-complement</li>
+                    <li>Triad</li>
+                </ul>
+            </div>
+            <button>Get color scheme</button>
+        </section>
+        <section class="scheme">
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+        </section>
+        <section class="codes">
+            <p>#FFFFFF</p>
+            <p>#FFFFFF</p>
+            <p>#FFFFFF</p>
+            <p>#FFFFFF</p>
+            <p>#FFFFFF</p>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
+
 </html>

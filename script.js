@@ -4,8 +4,21 @@ const baseUrl =
     "https://www.thecolorapi.com/scheme?hex=0047AB&rgb=0,71,171&hsl=215,100%,34%&cmyk=100,58,0,33&format=html&mode=analogic&count=6";
 const btn = document.querySelector("button");
 const active = document.querySelector(".mode");
+const modal = document.querySelector(".copy-modal");
 
 init();
+
+const rgba2hex = (rgba) =>
+    `#${rgba
+        .match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/)
+        .slice(1)
+        .map((n, i) =>
+            (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n))
+                .toString(16)
+                .padStart(2, "0")
+                .replace("NaN", "")
+        )
+        .join("")}`;
 
 function init() {
     btn.addEventListener("click", () => {
@@ -61,4 +74,29 @@ function init() {
     document.body.addEventListener("click", () => {
         dropdown.classList.remove("show");
     });
+
+    document.querySelectorAll(".color").forEach((element) => {
+        element.addEventListener("click", (e) => {
+            if (e.target.style.backgroundColor) {
+                navigator.clipboard
+                    .writeText(rgba2hex(element.style.backgroundColor))
+                    .then(showCopyModal());
+            }
+        });
+    });
+
+    document.querySelectorAll('p').forEach(p => {
+        p.addEventListener('click', () => {
+            navigator.clipboard
+                    .writeText(p.textContent)
+                    .then(showCopyModal());
+        })
+    })
+}
+
+function showCopyModal() {
+    modal.classList.add("show");
+    setTimeout(() => {
+        modal.classList.remove("show");
+    }, 2000);
 }

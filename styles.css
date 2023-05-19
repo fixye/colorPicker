@@ -4,21 +4,22 @@
 }
 
 :root {
-    --bg : rgba(255, 255, 255, 1);
-    --border : rgba(209, 213, 219, 1);
-    --modes-color : rgba(17, 24, 39, 1);
-    --codes-color : rgba(43, 40, 58, 1);
-    --btn-color : rgba(55, 65, 81, 1);
+    --bg: rgba(255, 255, 255, 1);
+    --border: rgba(209, 213, 219, 1);
+    --modes-color: rgba(17, 24, 39, 1);
+    --codes-color: rgba(43, 40, 58, 1);
+    --btn-color: rgba(55, 65, 81, 1);
 }
 
 body {
     display: flex;
     height: 100vh;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: var(--text-color);
 }
 
 main {
+    box-sizing: content-box;
     width: 550px;
     height: 550px;
     border: 1px solid var(--border);
@@ -26,10 +27,14 @@ main {
     margin: auto;
 }
 
+p {
+    text-transform: uppercase;
+    cursor: pointer;
+}
 .toolbar {
     display: flex;
     justify-content: space-around;
-    gap: .5rem;
+    gap: 0.5rem;
     align-items: center;
     padding: 23px 14px;
 }
@@ -64,12 +69,12 @@ button {
     border-radius: 4px;
     background-color: var(--bg);
     height: 42px;
-    transition: box-shadow .5s;
+    transition: box-shadow 0.5s;
     color: var(--btn-color);
 }
 
 button:hover {
-    box-shadow: 0 0 13px rgba(0, 0, 0, .25);
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.25);
 }
 
 ul {
@@ -88,7 +93,7 @@ ul {
 
 li {
     padding: 8px 12px;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
     border-radius: 6px;
     color: var(--modes-color);
     user-select: none;
@@ -111,22 +116,44 @@ ul:first-child {
 .scheme {
     display: flex;
     position: relative;
-    z-index: -1;
+    width: 100%;
 }
+
 
 .color {
     height: 410px;
-    width: 110px;
-    transition: transform .5s;
+    width: 100%;
+    transition: transform 0.5s;
+    position: relative;
+    z-index: 2;
+}
+
+.color:nth-child(1){
+    background-color: #000000;
+}
+
+.color:nth-child(2){
+    background-color: #1a1919;
+}
+
+.color:nth-child(3){
+    background-color: #343232;
+}
+
+.color:nth-child(4){
+    background-color: #4f4a4a;
+}
+
+.color:nth-child(5){
+    background-color: #6a6262;
 }
 
 .color:hover {
-    transform: scale(110%);
+    transform: scale(102%);
 }
 
 li:hover {
     background-color: #efefef;
-    
 }
 
 .codes {
@@ -138,6 +165,22 @@ li:hover {
     font-size: 12px;
     font-weight: 500;
     color: var(--codes-color);
+    position: relative;
+    z-index: 1;
+}
+
+.copy-modal {
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    top: 65px;
+    background-color: var(--bg);
+    display: none;
+    transition: display 0.5s ease-out;
 }
 
 .show {
